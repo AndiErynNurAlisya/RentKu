@@ -14,8 +14,7 @@
 6. [Alur Kerja Sistem](#alur-kerja-sistem)
 7. [Database Schema](#database-schema)
 8. [Notifikasi WhatsApp](#notifikasi-whatsapp)
-9. [Scheduled Tasks](#scheduled-tasks)
-10. [Troubleshooting](#troubleshooting)
+9. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -78,12 +77,6 @@ Orang-orang yang membutuhkan kendaraan untuk disewa dengan cepat dan praktis.
 rental-kendaraan/
 │
 ├── app/
-│   ├── Console/
-│   │   ├── Commands/
-│   │   │   ├── RentalReminderCommand.php          # Command untuk reminder pengembalian
-│   │   │   └── RentalReminderPickupCommand.php    # Command untuk reminder pickup
-│   │   └── Kernel.php                              # Registrasi scheduled tasks
-│   │
 │   ├── Http/
 │   │   ├── Controllers/
 │   │   │   ├── Admin/                              # Controller untuk fitur admin
@@ -121,8 +114,6 @@ rental-kendaraan/
 │   │   │
 │   │   ├── NewOrderAdminNotification.php           # Notif ke admin saat ada booking baru
 │   │   ├── NewOrderCustomerNotification.php        # Notif ke customer saat booking
-│   │   ├── ReminderPickupNotification.php          # Reminder sebelum pickup
-│   │   ├── ReminderReturnNotification.php          # Reminder sebelum pengembalian
 │   │   ├── RentalApprovedNotification.php          # Notif saat booking disetujui
 │   │   └── RentalCompletedNotification.php         # Notif saat rental selesai
 │   │
@@ -190,7 +181,7 @@ rental-kendaraan/
 #### 1. Clone Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/AndiErynNurAlisya/RentKu.git
 cd rental-kendaraan
 ```
 
@@ -248,28 +239,15 @@ php artisan migrate
 php artisan db:seed
 ```
 
-#### 8. Build Assets
-
-```bash
-npm run build
-```
-
-#### 9. Setup Storage Link
+#### 8. Setup Storage Link
 
 ```bash
 php artisan storage:link
 ```
 
-#### 10. Jalankan Aplikasi
+#### 9. Jalankan Aplikasi
 
 Untuk development:
-
-```bash
-# Menggunakan custom script yang menjalankan semua service
-composer run dev
-```
-
-Atau manual:
 
 ```bash
 # Terminal 1: Server
@@ -277,9 +255,6 @@ php artisan serve
 
 # Terminal 2: Queue Worker
 php artisan queue:work
-
-# Terminal 3: Frontend Dev Server
-npm run dev
 ```
 
 Aplikasi akan berjalan di: `http://127.0.0.1:8000`
